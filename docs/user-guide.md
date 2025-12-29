@@ -6,6 +6,7 @@ Welcome to UniCookbook! This guide will help you understand all the features and
 
 - [Getting Started](#getting-started)
 - [Authentication](#authentication)
+- [User Profile](#user-profile)
 - [Adding Recipes](#adding-recipes)
 - [Viewing Recipes](#viewing-recipes)
 - [Editing Recipes](#editing-recipes)
@@ -67,6 +68,66 @@ Non-authorized users and guests have limited access:
 
 ---
 
+## User Profile
+
+### Accessing Your Profile
+
+1. Click your profile icon in the top-right corner
+2. Select "User Profile" (or navigate to the profile view)
+3. You'll see your account details including:
+   - **Email** (from Google account, read-only)
+   - **Full Name** (synced from Google, read-only)
+   - **Display Name (Alias)** - Your contributor alias (editable by authorized users)
+   - **Authorization Status** - Shows if you're an authorized user or guest
+   - **Member Since** - Account creation date
+   - **Last Login** - Your most recent login
+
+### Setting Your Display Name (Alias)
+
+**Authorized Users Only:**
+Your display name (alias) is how your name appears as the contributor on recipes you add or contribute to.
+
+1. Click the **Display Name (Alias)** field
+2. Enter your preferred alias (up to 50 characters)
+3. Click **Save Changes**
+
+**Alias Rules:**
+- Must be unique across all users (no two users can have the same alias)
+- Cannot be empty
+- Maximum 50 characters
+- Appears on all recipes you contribute to
+
+**Note:** Non-authorized users cannot set an alias. The alias field is disabled for guest and non-authorized users.
+
+### Recipe Adoption
+
+If you change your alias and there are existing recipes with custom contributor names that match your new alias, you'll be prompted:
+
+```
+Found X recipe(s) with custom contributor "[YourNewAlias]".
+Do you want to adopt them by linking to your profile?
+```
+
+- **OK:** Links those recipes to your profile (they'll show your alias going forward)
+- **Cancel:** Leaves them as custom contributors
+
+### Deleting Your Profile
+
+**⚠️ Warning:** This action cannot be undone!
+
+1. Scroll to the bottom of your profile
+2. Click **Delete Profile**
+3. Confirm the deletion
+
+**When you delete your profile:**
+- Your user ID is removed from all recipes you contributed to
+- Custom contributor names remain (e.g., if a recipe used "John's Special" as a custom name, it stays)
+- All approvals you gave are removed from recipes
+- Your account is permanently deleted
+- You'll be logged out
+
+---
+
 ## Adding Recipes
 
 ### Method 1: Text Input
@@ -107,7 +168,9 @@ After parsing, you'll see a preview where you can:
 - If you have active filter tags when adding a recipe, those tags are also added automatically
 
 **Contributor Tracking:**
-- Your first name (from Google account) is automatically added as the contributor
+- Your first name (from Google account) is automatically used as a suggestion
+- **Authorized users:** Your alias (from your user profile) is used as the contributor
+- **Non-authorized users:** You cannot add recipes
 
 **Continue Adding:**
 - Check "Continue adding recipes" to quickly add multiple recipes without returning to the list
@@ -306,7 +369,9 @@ When viewing an untested recipe, authorized users see:
 
 The system checks if you're the contributor by:
 - Comparing your email with the recipe's `user_email` field
-- Comparing your first name with the recipe's `contributor` field
+- Comparing your user ID with the recipe's `contributor_id` field
+
+This ensures each user can only approve recipes they did not contribute to.
 
 ---
 
