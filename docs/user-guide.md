@@ -285,11 +285,13 @@ When viewing an untested recipe, authorized users see:
 - **Approval Status:** Shows current approvals (e.g., "1 / 2")
 - **Approval History:** List of who has approved
 - **Approve Button:** Click to add your approval
+- **Remove My Approval:** If you've approved, you can revoke it
 
 **Button States:**
 - ✅ **Green "Approve Recipe"** - Available to approve
 - 🔒 **Gray (Disabled)** - You are the contributor (cannot self-approve)
 - ✔️ **Approved Message** - You already approved or 2 approvals reached
+- ⛔ **Red "Remove My Approval"** - Visible when you've already approved
 
 ### Approval Rules
 
@@ -298,6 +300,7 @@ When viewing an untested recipe, authorized users see:
 3. Each user can only approve a recipe once
 4. Recipe needs 2 unique approvals
 5. Once approved (2 approvals), "Untested" tag is removed automatically
+6. You can remove your own approval; if approvals drop below 2, the "Untested" tag is added back automatically
 
 ### Checking Contributor Status
 
