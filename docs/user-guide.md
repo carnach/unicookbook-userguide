@@ -20,11 +20,15 @@ Welcome to UniCookbook! This guide will help you understand all the features and
 
 ## Getting Started
 
-UniCookbook is a collaborative recipe management application that allows users to add, view, edit, and share recipes. The app supports AI-powered recipe parsing from both text and URLs, making it easy to import recipes from various sources.
+UniCookbook is a collaborative recipe management application that allows users to add, view, edit, and share recipes. The app supports AI-powered recipe parsing from text, URLs, images, and multi-page PDFs, making it easy to import recipes from virtually any source.
 
 ### Key Features
 
-- 🤖 AI-powered recipe parsing
+- 🤖 AI-powered recipe parsing with GPT-4o Vision
+- 📸 Image and PDF upload support
+- 📄 Multi-page PDF processing with page selection
+- 🌍 Automatic language detection and translation to British English
+- 📏 Imperial to metric conversion
 - 🔐 Google authentication with role-based access
 - 🏷️ Multi-tag filtering system
 - ✅ Recipe approval workflow
@@ -130,10 +134,21 @@ Do you want to adopt them by linking to your profile?
 
 ## Adding Recipes
 
-### Method 1: Text Input
+### Overview
+
+UniCookbook offers multiple ways to add recipes using AI-powered parsing:
+
+1. **Text Input** - Paste recipe text
+2. **URL Import** - Enter a recipe URL
+3. **Image Upload** - Upload photos or screenshots
+4. **PDF Upload** - Upload single or multi-page PDFs
+
+All methods use advanced AI to extract recipe information, detect the language, translate to British English if needed, and convert measurements to metric.
+
+### Method 1: Paste Text
 
 1. Click the "Add Recipe" button (+ icon)
-2. Select the "Text" tab
+2. Select the "Paste Text" tab
 3. Paste or type your recipe in any format
 4. Click "Parse Recipe with AI"
 5. The AI will extract and structure:
@@ -144,31 +159,94 @@ Do you want to adopt them by linking to your profile?
    - Ingredients (with support for ingredient groups)
    - Instructions
    - Notes
+   - Tags
+
+**AI Processing:**
+- Detects if the recipe is in a foreign language
+- Translates to British English (GB)
+- Uses British terminology (courgette, aubergine, etc.)
+- Converts imperial measurements to metric with originals in brackets
 
 ### Method 2: URL Import
 
 1. Click the "Add Recipe" button (+ icon)
-2. Select the "URL" tab
+2. Select the "From URL" tab
 3. Paste a recipe URL from a supported website
 4. Click "Parse Recipe from URL"
-5. The AI will fetch and parse the recipe
+5. The AI will fetch, parse, and process the recipe
+
+**Notes:**
+- Works with most recipe websites
+- May fail on paywalled or login-required sites
+- Complex pages may take longer to process
+
+### Method 3: Image Upload
+
+1. Click the "Add Recipe" button (+ icon)
+2. Select the "Upload Image/PDF" tab
+3. Click the upload area or drag and drop an image
+4. Wait for the image to be processed and compressed
+5. Click "Parse Recipe from Image"
+
+**Supported Image Formats:**
+- PNG, JPG, JPEG
+- Maximum file size: 10MB
+- Images are automatically compressed to optimize processing
+
+**Best Results:**
+- Use clear, well-lit photos
+- Ensure text is readable
+- Works with cookbook photos, screenshots, or handwritten recipes
+
+### Method 4: PDF Upload (Multi-Page Support)
+
+1. Click the "Add Recipe" button (+ icon)
+2. Select the "Upload Image/PDF" tab
+3. Upload a PDF file (drag and drop or click to browse)
+4. Wait for PDF conversion (all pages are converted to images)
+5. **For multi-page PDFs:**
+   - View thumbnails of all pages
+   - Click pages to select/deselect
+   - Use "Select All" or "Clear" buttons
+   - First page is selected by default
+6. Click "Parse Recipe from X Page(s)"
+7. The AI will combine selected pages into a single recipe
+
+**PDF Features:**
+- Supports multi-page PDFs
+- Select specific pages to parse
+- AI combines multiple pages into one recipe
+- Maximum file size: 10MB
+- Password-protected PDFs not supported
+
+**Processing Details:**
+- Each page is converted to an image
+- Images are compressed for faster processing
+- Selected pages are sent together to the AI
+- AI intelligently combines information from all pages
 
 ### Recipe Preview & Editing
 
 After parsing, you'll see a preview where you can:
-- Edit any field (title, servings, times, ingredients, instructions)
+- Edit any field (all pre-filled by AI)
 - Add, remove, or reorder ingredients and instructions
+- Review AI conversions and translations
 - Add custom tags
 - Save or discard the recipe
 
 ### Default Behavior
 
 **Automatic Tagging:**
-- All new recipes automatically receive an "Untested" tag
+- All new recipes receive an "Untested" tag automatically
 - If you have active filter tags when adding a recipe, those tags are also added automatically
 
+**AI Processing:**
+- Language detection and translation to British English
+- Metric conversion (imperial measurements converted with originals in brackets)
+- British terminology (courgette instead of zucchini, aubergine instead of eggplant)
+- Structured grouping of ingredients and instructions
+
 **Contributor Tracking:**
-- Your first name (from Google account) is automatically used as a suggestion
 - **Authorized users:** Your alias (from your user profile) is used as the contributor
 - **Non-authorized users:** You cannot add recipes
 
@@ -246,50 +324,55 @@ In the recipe detail view:
 
 **Metric Conversion:**
 - Click "Convert to Metric" to automatically convert imperial measurements to metric
+- Uses AI to intelligently convert based on ingredient type
+- Preserves original measurements in brackets
+- Handles teaspoons and tablespoons appropriately
+- Converts British vs American terminology
 
 ---
 
 ## Filtering & Search
 
-### Filter by Type (Tags)
+### Tag Filtering
 
-The tag filter uses **AND logic**:
-- Click tag buttons to toggle them on/off
-- Multiple tags can be selected simultaneously
-- Only recipes with **all** selected tags are shown
-- Selected tags are highlighted in green
-- Click "All Recipes" to clear all filters
+Filter recipes by one or more tags:
+1. Click tag pills in the sidebar or above the recipe list
+2. Multiple tags can be active (shows recipes matching ALL selected tags)
+3. Active tags are highlighted
+4. Click again to deselect
 
-**Example:**
-- Selecting "Pasta" + "Untested" shows only recipes tagged with both
+**Available Tags:**
+- Breakfast
+- Pasta
+- Not Pasta
+- Dips & Sauces
+- Sweet Stuff
+- Drinks
+- Untested (authorized users only)
+- Custom tags (user-created)
 
-**Note:** Non-authorized users do not see the "Untested" filter option.
+### Search Bar
 
-### Filter by Contributor
-
-Filter recipes by the person who added them:
-- Click contributor buttons to filter
-- Only one contributor can be selected at a time
-- Click "All Contributors" to clear the filter
-
-### Search
-
-Use the search bar to find recipes by:
+Use the search box to find recipes by:
 - Recipe title
-- Ingredients
-- Instructions
-- Contributor name
-- Notes
+- Ingredient names
+- Instruction text
+- Contributor names
+- Tags
 
-Search is **case-insensitive** and works across all text fields.
+**Search Tips:**
+- Search is case-insensitive
+- Matches partial words
+- Searches across all recipe fields
+- Combines with tag filters
 
-### Combined Filtering
+### Contributor Filter
 
-All three filters (Tags, Contributor, Search) work together:
-- Tags: Must match ALL selected tags (AND)
-- Contributor: Must match selected contributor
-- Search: Must match search query
-- Results must satisfy ALL active filters
+Filter by contributor (authorized users only):
+1. Click the contributor dropdown
+2. Select a specific contributor
+3. View only recipes from that contributor
+4. Select "All Contributors" to clear
 
 ---
 
@@ -297,81 +380,56 @@ All three filters (Tags, Contributor, Search) work together:
 
 ### Predefined Tags
 
+UniCookbook includes these built-in tags:
 - **Breakfast** - Morning meals
-- **Pasta** - Pasta dishes
+- **Pasta** - Pasta-based dishes
 - **Not Pasta** - Non-pasta dishes
-- **Dips & Sauces** - Condiments and dips
-- **Sweet Stuff** - Desserts and sweets
+- **Dips & Sauces** - Dips, sauces, and condiments
+- **Sweet Stuff** - Desserts and sweet treats
 - **Drinks** - Beverages
-- **Untested** - Recipes awaiting approval
+- **Untested** - Recipes not yet tested (auto-added to new recipes)
 
 ### Custom Tags
 
-You can add custom tags when editing recipes:
-1. Type the tag name in the "Add custom tag" field
-2. Click "Add Tag"
-3. Custom tags appear alongside predefined tags
+Authorized users can add custom tags:
+1. When editing a recipe, type a new tag name
+2. Press Enter or click "Add"
+3. The tag is added to the recipe and becomes available system-wide
 
-### The "Untested" Tag
+### Tag Behavior
 
-**Special Behavior:**
-- Automatically added to all new recipes
-- Only visible to authorized users
-- Recipes with this tag are hidden from non-authorized users
-- Automatically removed when recipe receives 2 approvals
+- Tags are case-sensitive
+- Tags persist across all recipes
+- Deleting a tag from one recipe doesn't remove it from others
+- Custom tags appear alongside predefined tags
 
 ---
 
 ## Recipe Approval System
 
-**Purpose:** Quality control for new recipes before they're visible to all users.
+**Access:** Authorized users only
 
-### How It Works
+### Purpose
 
-1. **New Recipe Added**
-   - Recipe receives "Untested" tag automatically
-   - Visible only to authorized users
+The approval system helps manage recipe quality:
+- New recipes are marked "Untested" by default
+- Authorized users can test and approve recipes
+- Non-authorized users only see approved recipes
 
-2. **Approval Process**
-   - Authorized users can approve untested recipes
-   - Each recipe requires **2 approvals** from different users
-   - **Contributors cannot approve their own recipes**
+### Approving a Recipe
 
-3. **After Approval**
-   - Once 2 approvals are received, "Untested" tag is removed
-   - Recipe becomes visible to all users
-   - Approval history is preserved
+1. Open an untested recipe (yellow card)
+2. Click the "Approve Recipe" button
+3. The recipe is marked as approved
+4. The "Untested" tag is removed
+5. The recipe becomes visible to all users
 
-### Approval Interface
+### Unapproving a Recipe
 
-When viewing an untested recipe, authorized users see:
-- **Approval Status:** Shows current approvals (e.g., "1 / 2")
-- **Approval History:** List of who has approved
-- **Approve Button:** Click to add your approval
-- **Remove My Approval:** If you've approved, you can revoke it
-
-**Button States:**
-- ✅ **Green "Approve Recipe"** - Available to approve
-- 🔒 **Gray (Disabled)** - You are the contributor (cannot self-approve)
-- ✔️ **Approved Message** - You already approved or 2 approvals reached
-- ⛔ **Red "Remove My Approval"** - Visible when you've already approved
-
-### Approval Rules
-
-1. Only authorized users can approve
-2. Contributors cannot approve their own recipes
-3. Each user can only approve a recipe once
-4. Recipe needs 2 unique approvals
-5. Once approved (2 approvals), "Untested" tag is removed automatically
-6. You can remove your own approval; if approvals drop below 2, the "Untested" tag is added back automatically
-
-### Checking Contributor Status
-
-The system checks if you're the contributor by:
-- Comparing your email with the recipe's `user_email` field
-- Comparing your user ID with the recipe's `contributor_id` field
-
-This ensures each user can only approve recipes they did not contribute to.
+1. Open an approved recipe
+2. Click "Mark as Untested"
+3. The "Untested" tag is added back
+4. The recipe is hidden from non-authorized users
 
 ---
 
@@ -379,71 +437,78 @@ This ensures each user can only approve recipes they did not contribute to.
 
 ### Share Link
 
-Click the Share button to:
-- Generate a unique URL for the recipe
-- Automatically copy the link to clipboard
-- Recipients can view the recipe directly when opening the link
+1. Open a recipe in detail view
+2. Click the Share button (🔗)
+3. A shareable URL is copied to your clipboard
+4. Share the link with others
+
+**Note:** Recipients must have access to the app to view the recipe.
 
 ### Copy to Clipboard
 
-Click the Copy button to:
-- Copy the full recipe text to clipboard
-- Formatted as plain text with all details
-- Easy to paste into emails, messages, or documents
+1. Open a recipe
+2. Click the Copy button (📋)
+3. The entire recipe text is copied in plain format
+4. Paste anywhere (email, notes, messages)
 
 ### Print
 
-Click the Print button to:
-- Open print-friendly view
-- Use browser's print dialog
-- Optimized layout for printing
+1. Open a recipe
+2. Click the Print button (🖨️)
+3. A print-friendly version opens
+4. Use your browser's print function
+
+**Print Features:**
+- Clean, formatted layout
+- Ingredient groups preserved
+- Instruction sections preserved
+- No UI elements (buttons, filters)
 
 ### Download as PDF
 
-Click the Download button to:
-- Generate a PDF of the recipe
-- Download automatically
-- Formatted for easy reading and storage
+1. Open a recipe
+2. Click the Download button (📥)
+3. A formatted PDF is generated
+4. The PDF downloads automatically
+
+**PDF Features:**
+- Professional formatting
+- Preserves all recipe groups
+- Includes all metadata
+- Suitable for archiving or sharing
 
 ---
 
 ## Data Management
 
+### Backup & Restore
+
+**Access:** Authorized users only
+
+### Creating a Backup
+
+1. Go to the recipe list view
+2. Click "Download Backup"
+3. All recipes are exported as a JSON file
+4. Save the file securely
+
+### Restoring from Backup
+
+1. Click "Restore from Backup"
+2. Select a previously saved backup file
+3. Choose restore option:
+   - **Replace all:** Deletes current recipes and restores from backup
+   - **Merge:** Adds backup recipes to existing ones (skips duplicates)
+4. Confirm the operation
+
+**⚠️ Warning:** "Replace all" permanently deletes current recipes!
+
 ### Data Storage
 
-**Primary Storage:** Supabase (PostgreSQL database)
-- All recipes stored in cloud
-- Real-time synchronization
-- Shared across all users
-
-**Fallback Storage:**
-- LocalStorage (browser-based)
-- Used if Supabase is unavailable
-
-### Backup & Export
-
-**Manual Backup:**
-1. Click your profile icon
-2. Select "Backup Data"
-3. All recipes exported as JSON
-4. Copy from the modal or download
-
-**Restore:**
-1. Click "Restore Data"
-2. Paste JSON backup
-3. Click "Restore"
-4. Data is imported to Supabase
-
-### Delete All Recipes
-
-**⚠️ Warning:** This action cannot be undone!
-
-1. Click profile icon
-2. Select "Delete All Recipes"
-3. Confirm the action
-4. All recipes are permanently deleted from Supabase
-
-**Note:** This deletes ALL recipes for ALL users, not just your own.
+- Recipes are stored in Supabase PostgreSQL
+- Real-time sync across devices
+- Automatic backups (if configured in Supabase)
+- Secure cloud storage
 
 ---
 
@@ -451,72 +516,113 @@ Click the Download button to:
 
 ### Adding Recipes
 
-✅ **Do:**
-- Paste complete recipe text for best AI parsing results
-- Include ingredient amounts and units
-- Review and edit the parsed recipe before saving
-- Add relevant tags for easy filtering
-
-❌ **Don't:**
-- Submit incomplete recipe information
-- Approve recipes without testing them
-- Delete the "Untested" tag manually from new recipes
+- **Use clear recipe sources** - Well-formatted recipes parse better
+- **Review AI parsing** - Always check the preview before saving
+- **Add descriptive tags** - Makes recipes easier to find
+- **Test multi-page PDFs** - Select only relevant pages for better results
+- **Use good quality images** - Clear, well-lit photos work best
 
 ### Organizing Recipes
 
-- Use **multiple tags** to categorize recipes effectively
-- Add **custom tags** for specific dietary needs or occasions
-- Use **contributor filter** to find recipes from specific people
-- Leverage **search** for quick ingredient or recipe name lookup
+- **Use consistent tags** - Stick to existing tags when possible
+- **Add notes** - Include cooking tips or variations
+- **Group ingredients logically** - Use ### headers for multi-component recipes
+- **Set clear contributors** - Helps track recipe sources
 
-### Recipe Approval
+### Searching
 
-- **Test the recipe** before approving
-- Provide **feedback** to contributors if issues found
-- Use the **edit feature** to fix minor issues before approving
-- Remember: You need **2 independent approvals** for quality assurance
+- **Combine filters** - Use tags + search for precise results
+- **Search by ingredient** - Find recipes using specific ingredients
+- **Use contributor filter** - Find all recipes from a specific person
 
-### Filtering
+### Maintenance
 
-- Combine **tag filters** for precise results (e.g., "Breakfast" + "Sweet Stuff")
-- Use **search** with filters for powerful queries
-- Clear filters frequently to discover new recipes
+- **Regular backups** - Download backups periodically
+- **Approve tested recipes** - Remove "Untested" tag after testing
+- **Update recipes** - Keep prep/cook times and servings accurate
+- **Clean up tags** - Remove unnecessary custom tags
 
 ---
 
 ## Troubleshooting
 
-### Common Issues
+### Recipe Parsing Issues
 
-**Can't see a recipe you just added:**
-- Check if you're filtering by tags that exclude it
-- Clear all filters and search
+**Problem:** AI fails to parse recipe correctly
+- **Solution:** Review the source text for clarity, try reformatting, or manually enter the recipe
 
-**Can't approve a recipe:**
-- Verify you're not the contributor
-- Check if you already approved it
-- Ensure you're logged in as an authorized user
+**Problem:** URL import fails
+- **Solution:** Ensure the URL is accessible, not behind a paywall, and contains a recipe
 
-**Recipe parsing failed:**
-- Ensure recipe text is complete
-- Try reformatting the text
-- Check that the URL is accessible
-- Contact an administrator if issues persist
+**Problem:** Image/PDF upload fails
+- **Solution:** Check file size (max 10MB), ensure file is not corrupted, refresh page and try again
 
-**Changes not saving:**
-- Check your internet connection
-- Verify you're logged in
-- Check browser console for errors
+**Problem:** PDF conversion fails
+- **Solution:** Verify PDF is not password-protected, try a different PDF viewer to check validity
+
+### Authentication Issues
+
+**Problem:** Can't sign in with Google
+- **Solution:** Check internet connection, verify Google account works, clear browser cache
+
+**Problem:** Lost authorization after login
+- **Solution:** Contact admin to verify your email is in AUTHORIZED_USERS list
+
+### Display Issues
+
+**Problem:** Recipes not showing
+- **Solution:** Check filter tags, verify you're not filtering to empty results
+
+**Problem:** Can't see "Untested" recipes
+- **Solution:** This is normal for non-authorized users; contact admin for access
+
+### Data Issues
+
+**Problem:** Recipe changes not saving
+- **Solution:** Check internet connection, verify Supabase is accessible, try refreshing
+
+**Problem:** Backup restore failed
+- **Solution:** Verify backup file is valid JSON, check file wasn't corrupted
 
 ---
 
-## Support
+## FAQ
 
-For issues, questions, or feature requests:
-- Contact your system administrator
-- Check the browser console for error messages
-- Verify your authorization status
+**Q: Can I add recipes in other languages?**
+A: Yes! The AI automatically detects and translates to British English.
+
+**Q: What image formats are supported?**
+A: PNG, JPG, and JPEG files up to 10MB.
+
+**Q: Can I upload multi-page PDFs?**
+A: Yes! You can select specific pages to parse and combine into one recipe.
+
+**Q: How does metric conversion work?**
+A: The AI converts imperial measurements (cups, ounces, °F) to metric (ml, grams, °C) and includes the original in brackets.
+
+**Q: Why are some recipes yellow?**
+A: Yellow cards indicate "Untested" recipes, visible only to authorized users.
+
+**Q: Can guests add recipes?**
+A: No, only authorized users can add, edit, or delete recipes.
+
+**Q: How do I become an authorized user?**
+A: Contact the application administrator to add your email to the AUTHORIZED_USERS list.
+
+**Q: Are my recipes private?**
+A: No, all recipes are shared with everyone who has access to the app.
+
+**Q: Can I delete my account?**
+A: Yes, through the User Profile page, but this action cannot be undone.
+
+**Q: What happens to my recipes if I delete my account?**
+A: Recipes remain but your profile link is removed; they show as custom contributors.
 
 ---
 
-*Last updated: December 24, 2025*
+## Contact & Support
+
+For issues, questions, or feature requests, contact the application administrator.
+
+**Version:** 2.0
+**Last Updated:** January 2026
