@@ -10,6 +10,7 @@ Welcome to UniCookbook! This guide will help you understand all the features and
 - [Preferences](#preferences)
 - [Adding Recipes](#adding-recipes)
 - [Viewing Recipes](#viewing-recipes)
+- [Cooking Mode](#cooking-mode)
 - [Editing Recipes](#editing-recipes)
 - [Filtering & Search](#filtering--search)
 - [Tag System](#tag-system)
@@ -342,6 +343,80 @@ In the recipe detail view:
 - 🖨️ **Print** - Print-friendly view
 - 📥 **Download** - Export as PDF
 - 🗑️ **Delete** - Remove the recipe (authorized users only)
+
+---
+
+## Cooking Mode
+
+### Overview
+
+Cooking Mode is a mobile-friendly feature designed to help you follow recipes hands-free while cooking. It enables you to:
+- ✅ Check off ingredients as you prepare them
+- 👁️ Highlight each step individually for easy reading
+- 🔄 Navigate between steps with previous/next buttons or by tapping steps
+- 📱 Keep your screen awake while cooking
+- 🔄 Reset all progress at any time
+
+### Accessing Cooking Mode
+
+1. Open any recipe in detail view on a mobile device
+2. Tap the menu button (☰) to open the actions menu
+3. Select **Cooking Mode** to enable it
+
+**Important:** Cooking Mode is optimized for mobile devices and works best on smartphones and tablets.
+
+### Using Cooking Mode
+
+#### Checking Ingredients
+
+When you enable Cooking Mode, the page automatically scrolls to the ingredients section.
+
+1. Tap on any ingredient to check it off
+2. Checked ingredients appear with a green checkmark and strikethrough
+3. Tap again to uncheck an ingredient
+4. There's no requirement to check all ingredients before moving to instructions
+
+#### Following Instructions
+
+After checking ingredients, scroll down to the instructions section:
+
+1. The current step is highlighted in orange with a larger font
+2. The step navigation controls are always visible at the top (sticky)
+3. Tap **Previous** or **Next** buttons to navigate between steps
+4. Or tap any step directly to jump to it
+5. The current step automatically scrolls into view when you navigate
+6. Progress is displayed as "Step X of Y"
+
+#### Resetting Progress
+
+During cooking mode:
+- Click the **Reset** button to clear all checked ingredients and return to step 1
+- Alternatively, exit cooking mode (tap the menu and select "Exit Cooking Mode") to automatically reset all progress
+
+### Screen Wake Lock
+
+When Cooking Mode is active, your device's screen will stay awake and won't go to sleep. This prevents the screen from locking while you're actively cooking.
+
+- The Wake Lock is activated when entering Cooking Mode
+- It's automatically released when exiting Cooking Mode
+- This feature works on modern mobile browsers (Chrome, Firefox, Safari on iOS 15+)
+
+### Saving Your Progress
+
+Cooking Mode progress is automatically saved to your device:
+- Checked ingredients and current step are remembered
+- Progress survives page refreshes
+- Each recipe maintains its own separate cooking session
+
+### Exiting Cooking Mode
+
+To exit Cooking Mode:
+1. Tap the menu button (☰)
+2. Select **Exit Cooking Mode**
+3. All progress (checked ingredients and current step) will be automatically reset
+4. You'll return to the normal recipe view
+
+**Note:** Cooking Mode is also reset when you log out from your account.
 
 ---
 
