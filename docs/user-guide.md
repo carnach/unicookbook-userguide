@@ -7,14 +7,17 @@ Welcome to UniCookbook! This guide will help you understand all the features and
 - [Getting Started](#getting-started)
 - [Authentication](#authentication)
 - [User Profile](#user-profile)
+- [Preferences](#preferences)
 - [Adding Recipes](#adding-recipes)
 - [Viewing Recipes](#viewing-recipes)
 - [Editing Recipes](#editing-recipes)
 - [Filtering & Search](#filtering--search)
 - [Tag System](#tag-system)
 - [Recipe Approval System](#recipe-approval-system)
+- [Recipe Approvals Dashboard](#recipe-approvals-dashboard)
 - [Sharing & Exporting](#sharing--exporting)
 - [Data Management](#data-management)
+- [Navigation](#navigation)
 
 ---
 
@@ -132,7 +135,43 @@ Do you want to adopt them by linking to your profile?
 
 ---
 
-## Adding Recipes
+## Preferences
+
+**Access:** Authorized users only
+
+### Accessing Preferences
+
+1. Click your profile icon in the top-right corner
+2. Select "Preferences" from the menu
+3. Adjust your recipe visibility settings
+
+### Available Preferences
+
+#### Show Untested Recipes
+
+**Default:** Hidden (unchecked)
+
+When enabled:
+- ✅ View all recipes tagged "Untested"
+- ✅ See "Untested" as a filter option
+- ✅ Approved recipes continue to show
+
+This preference is useful if you want to browse recipes under testing before they receive final approval.
+
+#### Show My Untested Recipes
+
+**Default:** Enabled (checked)
+
+When enabled (only available when "Show Untested Recipes" is **unchecked**):
+- ✅ Always see your own submitted untested recipes
+- ✅ Even if general untested visibility is hidden
+- ❌ Does not show other users' untested recipes
+
+This allows you to track recipes you've submitted for testing without viewing all untested recipes in the system.
+
+**Note:** This setting is automatically disabled when "Show Untested Recipes" is enabled, since all untested recipes will already be visible.
+
+---
 
 ### Overview
 
@@ -414,26 +453,116 @@ Authorized users can add custom tags:
 The approval system helps manage recipe quality:
 - New recipes are marked "Untested" by default
 - Authorized users can test and approve recipes
+- Recipes require 2 approvals to be marked as tested
 - Non-authorized users only see approved recipes
 
-### Approving a Recipe
+### Approval Workflow
 
 1. Open an untested recipe (yellow card)
-2. Click the "Approve Recipe" button
-3. The recipe is marked as approved
-4. The "Untested" tag is removed
-5. The recipe becomes visible to all users
+2. Scroll to the "Approval Status" section
+3. Click "Approve Recipe"
+4. Your approval is recorded
+5. Once 2 users have approved, the "Untested" tag is automatically removed
+
+### Approval Rules
+
+- ✅ You can approve any recipe **except your own submissions**
+- ✅ Each authorized user can approve once per recipe
+- ✅ Once approved, you can remove your approval
+- ❌ Contributors cannot approve their own recipes
+- ❌ Recipes are locked at 2 approvals (can't add more)
 
 ### Unapproving a Recipe
 
-1. Open an approved recipe
-2. Click "Mark as Untested"
-3. The "Untested" tag is added back
-4. The recipe is hidden from non-authorized users
+1. Open a recipe you previously approved
+2. Click "Remove My Approval"
+3. If the recipe drops below 2 approvals, the "Untested" tag is restored
+4. The recipe returns to pending status
 
 ---
 
-## Sharing & Exporting
+## Recipe Approvals Dashboard
+
+**Access:** Authorized users only
+
+### Accessing the Approvals Dashboard
+
+1. Click your profile icon in the top-right corner
+2. Select "Approvals" from the menu
+3. View all recipes pending your approval
+
+### Dashboard Features
+
+**Approval List:**
+- Shows only untested recipes you can approve
+- Excludes your own recipes
+- Excludes recipes you've already approved
+- Excludes recipes with 2 approvals already
+
+**Information per Recipe:**
+- Recipe title and contributor
+- Tags (including "Untested" indicator)
+- Current approval count (e.g., "1/2 approvals")
+- Approvals remaining (e.g., "1 approval needed")
+
+**Actions:**
+
+- 👁️ **View** - Open full recipe details in a new view without leaving the approvals screen
+  - Click "View" to see ingredients, instructions, and notes
+  - Click "Back to Approvals" to return to the dashboard
+  
+- ☑️ **Select** - Check the checkbox to select recipes for bulk approval
+  
+- **Approve Selected** - Approve multiple recipes at once
+  - Only available when at least one recipe is selected
+  - Button shows count: "Approve selected (X selected)"
+  - Automatically removes approved recipes from the list
+  - Shows success message with count
+
+### Bulk Approval Workflow
+
+1. Review the list of pending recipes
+2. Check boxes next to recipes you want to approve
+3. Click "Approve selected" button
+4. Selected recipes are approved in one action
+5. Successfully approved recipes are removed from the list
+6. A confirmation message shows how many were approved
+
+### Tips
+
+- **View before approving** - Click "View" to check recipe details before approving
+- **Selective approvals** - Only select recipes you've tested and verified
+- **Bulk efficiency** - Select multiple recipes to approve them quickly
+- **Empty list** - When the list is empty, all untested recipes are either approved or waiting for others
+
+---
+
+## Navigation
+
+### Browser Back Button
+
+UniCookbook supports native browser navigation:
+
+- Click the browser back button (← in top-left) to go to the previous screen
+- Back button remembers your navigation history within the app
+- Works across all screens (recipe list → recipe detail → back to list)
+
+### Contextual Navigation
+
+The app intelligently tracks where you came from:
+
+- **From Recipe List:** Back button returns to recipe list
+- **From Approvals:** Back button returns to approvals dashboard
+- **From Detail View:** "Back to Recipes" or "Back to Approvals" button text changes based on source
+- **From Other Screens:** Back button navigates to the previous screen
+
+### Navigation Tips
+
+- Use back button to quickly navigate between screens
+- Breadcrumb text updates to show your current location
+- All screens support back navigation
+
+---
 
 ### Share Link
 
@@ -601,7 +730,19 @@ A: Yes! You can select specific pages to parse and combine into one recipe.
 A: The AI converts imperial measurements (cups, ounces, °F) to metric (ml, grams, °C) and includes the original in brackets.
 
 **Q: Why are some recipes yellow?**
-A: Yellow cards indicate "Untested" recipes, visible only to authorized users.
+A: Yellow cards indicate "Untested" recipes. Authorized users see them by default; you can control visibility in Preferences.
+
+**Q: How do recipe approvals work?**
+A: Recipes require 2 approvals from different authorized users to be marked as tested. You can view and approve pending recipes in the Approvals dashboard, and you cannot approve your own submissions.
+
+**Q: Can I view recipes before approving them?**
+A: Yes! In the Approvals dashboard, click "View" next to any recipe to see full details before deciding to approve.
+
+**Q: How do I see my submitted recipes if untested visibility is off?**
+A: Enable "Show my untested recipes" in Preferences. This lets you track your submissions even when other untested recipes are hidden.
+
+**Q: Can I bulk approve recipes?**
+A: Yes! In the Approvals dashboard, select multiple recipes and click "Approve selected" to approve them all at once.
 
 **Q: Can guests add recipes?**
 A: No, only authorized users can add, edit, or delete recipes.
