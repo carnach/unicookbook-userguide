@@ -15,6 +15,7 @@ Welcome to UniCookbook! This guide will help you understand all the features and
 - [Tag System](#tag-system)
 - [Recipe Approval System](#recipe-approval-system)
 - [Recipe Approvals Dashboard](#recipe-approvals-dashboard)
+- [Statistics Dashboard](#statistics-dashboard)
 - [Sharing & Exporting](#sharing--exporting)
 - [Data Management](#data-management)
 - [Navigation](#navigation)
@@ -557,6 +558,212 @@ The approval system helps manage recipe quality:
 - **Selective approvals** - Only select recipes you've tested and verified
 - **Bulk efficiency** - Select multiple recipes to approve them quickly
 - **Empty list** - When the list is empty, all untested recipes are either approved or waiting for others
+
+---
+
+## Statistics Dashboard
+
+**Authorized Users Only**
+
+The Statistics Dashboard provides comprehensive analytics about recipe views and contributions, helping you understand how your cookbook is being used.
+
+### Accessing Statistics
+
+1. Click your profile menu (top-right corner)
+2. Select **Statistics** (purple bar chart icon)
+3. The statistics page opens showing analytics for the last 30 days
+
+### Time Period Selection
+
+Choose different time ranges to analyze your data:
+
+- **Last 7 days**: Recent activity and short-term trends
+- **Last 30 days**: Monthly overview (default selection)
+- **Last 90 days**: Quarterly analysis
+- **Last year**: Annual statistics
+
+Select your preferred time period from the dropdown at the top of the page. All charts update automatically to reflect the chosen timeframe.
+
+### Available Charts
+
+#### 1. Views Over Time
+
+**Type:** Column/Line Chart
+
+- Shows daily recipe views across the selected time period
+- Each bar represents total views for that day
+- Hover over bars to see exact view counts
+- Helps identify usage patterns and peak activity days
+
+**Use Cases:**
+- Track recipe usage trends
+- Identify busy days or seasonal patterns
+- Monitor overall engagement with your cookbook
+
+#### 2. Top Recipes
+
+**Type:** Horizontal Bar Chart
+
+- Displays the 10 most viewed recipes
+- Shows recipe titles with their total view counts
+- Bars are color-coded with a green gradient
+- Longer bars indicate more popular recipes
+
+**Use Cases:**
+- Discover which recipes are most popular
+- Understand what types of recipes engage users most
+- Plan which recipes to promote or improve
+
+#### 3. Top Countries
+
+**Type:** Horizontal Bar Chart
+
+- Shows geographic distribution of your viewers
+- Based on IP geolocation data
+- Displays country codes (e.g., GB, US, DE, FR)
+- Limited to top 10 countries
+
+**Use Cases:**
+- Understand your international audience
+- Consider adding region-specific recipes
+- Optimize content for your primary geographic markets
+
+#### 4. Operating Systems
+
+**Type:** Horizontal Bar Chart
+
+- Platform usage breakdown (Windows, macOS, iOS, Android, Linux, etc.)
+- Shows which operating systems your users prefer
+- Helps ensure compatibility across platforms
+
+**Use Cases:**
+- Understand your audience's technical setup
+- Prioritize testing on popular platforms
+- Optimize UI/UX for primary operating systems
+
+#### 5. Web Browsers
+
+**Type:** Horizontal Bar Chart
+
+- Browser distribution (Chrome, Firefox, Safari, Edge, etc.)
+- Shows which browsers are most commonly used
+- Helps prioritize browser compatibility testing
+
+**Use Cases:**
+- Ensure the app works well on popular browsers
+- Debug browser-specific issues
+- Understand your users' browsing preferences
+
+#### 6. Most Active Users
+
+**Type:** Horizontal Bar Chart
+
+- Shows users ranked by total view count
+- Displays user aliases (display names) for privacy
+- Teal-colored bars indicate view counts
+- Limited to top 10 most active users
+
+**Use Cases:**
+- Identify your most engaged readers
+- Recognize frequent users
+- Understand user behavior patterns
+- Thank active community members
+
+#### 7. Recipe Contributions
+
+**Type:** Interactive Pie Chart
+
+- Shows recipe distribution by contributor
+- Each slice represents a contributor's share of total recipes
+- Color-coded with 10 vibrant colors
+- Displays both registered users and custom contributors
+
+**Features:**
+- **Pie Chart:** Visual representation with proportional slices
+- **Legend:** Lists all contributors with:
+  - Color indicator (matching slice color)
+  - Contributor name or alias
+  - Percentage of total recipes
+  - Exact recipe count
+- **Hover Tooltips:** Hover over pie slices for detailed information
+
+**Use Cases:**
+- See who contributes most to the cookbook
+- Recognize top contributors
+- Balance recipe variety across contributors
+- Track contribution diversity
+
+### Summary Statistics
+
+At the bottom of the dashboard, four summary cards display key metrics:
+
+#### Total Views
+- **Color:** Green
+- Sum of all recipe views in the selected time period
+- Indicates overall cookbook engagement
+
+#### Recipes Viewed
+- **Color:** Blue
+- Number of unique recipes that received at least one view
+- Shows content coverage and diversity of interests
+
+#### Countries
+- **Color:** Purple
+- Number of different countries accessing your recipes
+- Indicates geographic reach
+
+#### Browsers
+- **Color:** Orange
+- Variety of browsers used to view recipes
+- Shows technical diversity of your audience
+
+### Understanding the Data
+
+#### View Tracking
+
+- Views are tracked only for authenticated (signed-in) users
+- Each user's daily views per recipe are counted once
+- Refreshing a recipe multiple times in one day counts as 1 view
+- Viewing on different days increments the count
+
+#### User Privacy
+
+- User views display aliases (display names), not full names or emails
+- IP addresses are used for geolocation but not displayed
+- Browser and platform data is anonymized
+
+#### Data Aggregation
+
+- All statistics are aggregated on the server for performance
+- Charts display up to 10 items (top 10 recipes, countries, users, etc.)
+- Time-based data shows all dates in the selected range
+
+### Tips for Using Statistics
+
+1. **Regular Monitoring:** Check statistics weekly to track trends
+2. **Compare Time Periods:** Switch between 7/30/90/365 days to see different perspectives
+3. **Content Strategy:** Use top recipes data to guide new recipe additions
+4. **User Engagement:** Identify and engage with most active users
+5. **Contributor Recognition:** Acknowledge top contributors based on the pie chart
+6. **Geographic Insights:** Consider adding recipes popular in your top countries
+7. **Technical Optimization:** Ensure the app works well on popular browsers/platforms
+
+### Troubleshooting
+
+**No Data Showing:**
+- Ensure recipes have been viewed by authenticated users
+- Check that view tracking is enabled in your backend
+- Verify users are signing in (guest views are not tracked)
+
+**Limited Data:**
+- Try extending the time period (e.g., from 7 to 30 days)
+- Encourage users to sign in for view tracking
+- Allow more time for data to accumulate
+
+**Pie Chart Not Displaying:**
+- Ensure recipes have contributor information (contributor_id or contributor field)
+- Check that at least one recipe exists in the database
+- Verify backend is returning recipeContributions data
 
 ---
 
