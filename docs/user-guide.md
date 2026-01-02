@@ -10,6 +10,7 @@ Welcome to UniCookbook! This guide will help you understand all the features and
 - [Preferences](#preferences)
 - [Adding Recipes](#adding-recipes)
 - [Viewing Recipes](#viewing-recipes)
+- [Shopping Lists (AnyList)](#shopping-lists-anylist)
 - [Cooking Mode](#cooking-mode)
 - [Editing Recipes](#editing-recipes)
 - [Filtering & Search](#filtering--search)
@@ -343,6 +344,33 @@ In the recipe detail view:
 - 🖨️ **Print** - Print-friendly view
 - 📥 **Download** - Export as PDF
 - 🗑️ **Delete** - Remove the recipe (authorized users only)
+
+---
+
+## Shopping Lists (AnyList)
+
+Send ingredients from any recipe to your AnyList shopping lists.
+
+### Connect your AnyList account
+1. Go to **User Profile → AnyList Integration**.
+2. Enter your AnyList email and password, then click **Connect to AnyList**.
+3. Pick your default shopping list (first AnyList list is preselected). Lists load from your AnyList account; create lists there first if none appear.
+4. Credentials are used only to authenticate and are not stored; you will enter your password again when adding items.
+
+### Add ingredients from a recipe
+1. Open a recipe and tap the **shopping cart** icon in the action bar (desktop and mobile).
+2. Choose the target list in the modal (switch lists anytime).
+3. Select which ingredients to send. All non-header ingredients start selected; use **Select all** or **Unselect all** for quick toggles.
+4. Enter your AnyList password for this add-to-list action.
+5. Click **Add to list**. A success banner confirms items were sent; inline errors will call out missing connection, lists, or invalid credentials.
+
+### Disconnect
+1. Go to **User Profile → AnyList Integration**.
+2. Click **Disconnect from AnyList** and confirm. Reconnect later to send ingredients again.
+
+Notes:
+- Reconnect if you add new AnyList lists and do not see them in the dropdown.
+- Ingredients are added as unchecked; previously completed matches are automatically unchecked.
 
 ---
 
