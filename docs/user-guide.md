@@ -171,6 +171,17 @@ This allows you to track recipes you've submitted for testing without viewing al
 
 **Note:** This setting is automatically disabled when "Show Untested Recipes" is enabled, since all untested recipes will already be visible.
 
+#### Show Recipe View Counts
+
+**Default:** Hidden (unchecked)
+
+When enabled (authorized users only):
+- ✅ Show total views on recipe cards
+- ✅ Pair with "Popularity" sorting for fastest access to top-viewed recipes
+- ❌ Hidden from guests and non-authorized users
+
+Toggle this on if you want to see traffic signals for each recipe while browsing.
+
 ---
 
 ### Overview
@@ -296,6 +307,8 @@ After parsing, you'll see a preview where you can:
 
 ## Viewing Recipes
 
+Opening a recipe while signed in records a view for that recipe (tracked per user per day). Guests can browse but their views are not counted.
+
 ### Recipe List View
 
 Recipes are displayed as cards showing:
@@ -303,6 +316,7 @@ Recipes are displayed as cards showing:
 - Tags
 - Servings, prep time, and contributor
 - Number of ingredients and steps
+- View count (authorized users only, when **Show Recipe View Counts** is enabled in Preferences)
 
 **Visual Indicators:**
 - 🟡 Yellow cards = Untested recipes (visible only to authorized users)
@@ -412,6 +426,15 @@ Filter by contributor (authorized users only):
 2. Select a specific contributor
 3. View only recipes from that contributor
 4. Select "All Contributors" to clear
+
+### Sorting
+
+Use the sort controls above the recipe grid to reorder results:
+- **Popularity**: Sort by total views (requires tracked views; falls back gracefully when counts are zero)
+- **Date**: Sort by newest/oldest
+- **A-Z**: Sort alphabetically by title
+
+Click the direction toggle to switch between ascending/descending. Popularity sorting is most useful when **Show Recipe View Counts** is enabled so you can see the underlying view numbers.
 
 ---
 
