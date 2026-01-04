@@ -8,6 +8,7 @@ Welcome to UniCookbook! This guide will help you understand all the features and
 - [Authentication](#authentication)
 - [User Profile](#user-profile)
 - [Preferences](#preferences)
+- [Admin Features](#admin-features)
 - [Adding Recipes](#adding-recipes)
 - [Viewing Recipes](#viewing-recipes)
 - [Shopping Lists (AnyList)](#shopping-lists-anylist)
@@ -132,6 +133,56 @@ Do you want to adopt them by linking to your profile?
 **When you delete your profile:**
 - Your user ID is removed from all recipes you contributed to
 - Custom contributor names remain (e.g., if a recipe used "John's Special" as a custom name, it stays)
+
+---
+
+## Admin Features
+
+Administrators (defined in the `ADMIN_USERS` environment variable) have access to additional management features.
+
+### Authorized Users Management
+
+Admin users can manage who has editing access by maintaining an "Authorized Users" list separate from environment configuration.
+
+#### Accessing the Interface
+
+1. Click your profile icon in the top-right corner
+2. Select "Authorized Users"
+3. You'll see a list of currently authorized users and controls to add/remove them
+
+#### Adding an Authorized User
+
+**Using the Dropdown:**
+1. In the "Add Authorized User" section, click the email input field
+2. Start typing to filter from authenticated-but-unauthorized users
+3. Click a suggestion to select it
+4. Click the "Add" button
+
+**Using Manual Entry:**
+1. Type an email address directly (doesn't need to be an existing user)
+2. Click the "Add" button
+3. The user will receive authorization once they create an account
+
+**Features:**
+- Single-field interface with dropdown suggestions
+- Filter suggestions as you type
+- See alias alongside email in suggestions
+- Manual email entry for users not yet authenticated
+- Suggestions automatically close after successful add
+
+#### Removing an Authorized User
+
+1. Find the user in the "Current Authorized Users" list
+2. Click the trash icon button
+3. Click again to confirm removal
+4. The user will lose editing access immediately
+
+#### Notes
+
+- The admin users list (defined in `ADMIN_USERS` env var) cannot be changed in this interface
+- Changes take effect immediately
+- Users do not need to log out/in for changes to apply
+- Removed users retain their profile and view history but lose editing permissions
 - All approvals you gave are removed from recipes
 - Your account is permanently deleted
 - You'll be logged out
@@ -1081,7 +1132,7 @@ A: Yes! In the Approvals dashboard, select multiple recipes and click "Approve s
 A: No, only authorized users can add, edit, or delete recipes.
 
 **Q: How do I become an authorized user?**
-A: Contact the application administrator to add your email to the AUTHORIZED_USERS list.
+A: Contact the application administrator. If you're an admin user, you can add them using the Authorized Users management interface accessible from your profile.
 
 **Q: Are my recipes private?**
 A: No, all recipes are shared with everyone who has access to the app.
