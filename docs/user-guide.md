@@ -55,8 +55,9 @@ UniCookbook is a collaborative recipe management application that allows users t
 - If your email is in the authorized users list, you'll have full access
 
 **Guest Access**
-- Click "Continue as Guest" for read-only access
+- Click "Continue as Guest" for read-only access without creating an account
 - Guest users can view approved recipes but cannot add or edit
+- Guest sessions are managed by Supabase's anonymous authentication feature
 
 ### User Roles
 
