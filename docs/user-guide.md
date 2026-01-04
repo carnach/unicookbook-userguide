@@ -11,6 +11,7 @@ Welcome to UniCookbook! This guide will help you understand all the features and
 - [Admin Features](#admin-features)
 - [Adding Recipes](#adding-recipes)
 - [Viewing Recipes](#viewing-recipes)
+- [Personal Recipes](#personal-recipes)
 - [Shopping Lists (AnyList)](#shopping-lists-anylist)
 - [Cooking Mode](#cooking-mode)
 - [Editing Recipes](#editing-recipes)
@@ -396,6 +397,18 @@ In the recipe detail view:
 - 🖨️ **Print** - Print-friendly view
 - 📥 **Download** - Export as PDF
 - 🗑️ **Delete** - Remove the recipe (authorized users only)
+
+---
+
+## Personal Recipes
+
+Use your private cookbook to keep drafts or personal-only recipes separate from the shared collection.
+
+- **Turn on personal recipes:** Enable the personal cookbook in settings. When adding, choose Shared or Personal from the collection picker.
+- **Private by default:** Personal recipes are visible only to you; they use the same add/edit/delete flow as shared recipes.
+- **Separate backups:** Personal backups export only your private items. Shared backups exclude them so you do not leak private content.
+- **Submit later (step-by-step):** Open a personal recipe → click **Submit to shared** → confirm. If a shared copy already exists for this personal recipe, it is updated; otherwise a new shared recipe is created.
+- **Keep editing privately:** Continue refining in personal space even after submitting. When ready, click **Submit to shared** again to push your latest edits to the linked shared copy without losing your private version.
 
 ---
 
@@ -948,15 +961,20 @@ The app intelligently tracks where you came from:
 - All screens support back navigation
 
 ---
+## Sharing & Exporting
 
 ### Share Link
 
-1. Open a recipe in detail view
-2. Click the Share button (🔗)
-3. A shareable URL is copied to your clipboard
-4. Share the link with others
+**Create a link**
+1. Sign in, open a recipe in detail view
+2. Click the Share button (🔗) to copy a signed URL with `recipe` and `token` parameters
+3. Personal recipes can only be shared by their owner; shared recipes can be shared by any signed-in user
 
-**Note:** Recipients must have access to the app to view the recipe.
+**What recipients see**
+- No sign-in required; the link opens a recipe-only view tied to that token
+- Navigation to other recipes, adding, or editing is blocked in the share view
+- Recipients can copy, print, or download the recipe
+- Links expire after 30 days—if expired, ask the sharer to generate a fresh link
 
 ### Copy to Clipboard
 
@@ -1098,6 +1116,11 @@ The app intelligently tracks where you came from:
 **Problem:** Backup restore failed
 - **Solution:** Verify backup file is valid JSON, check file wasn't corrupted
 
+### Sharing Issues
+
+**Problem:** Share link shows "Share link expired" or "Invalid share token"
+- **Solution:** Ask the recipe owner to generate a new link (links last 30 days) and make sure the URL includes both `recipe` and `token` parameters
+
 ---
 
 ## FAQ
@@ -1136,7 +1159,7 @@ A: No, only authorized users can add, edit, or delete recipes.
 A: Contact the application administrator. If you're an admin user, you can add them using the Authorized Users management interface accessible from your profile.
 
 **Q: Are my recipes private?**
-A: No, all recipes are shared with everyone who has access to the app.
+A: Recipes are visible to anyone with app access. Signed share links let you share a single recipe with anyone holding the link, but they cannot browse or edit other recipes.
 
 **Q: Can I delete my account?**
 A: Yes, through the User Profile page, but this action cannot be undone.
