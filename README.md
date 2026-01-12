@@ -2,6 +2,17 @@
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
+This is the user guide and documentation site for the UniCookbook recipe management application.
+
+## 📝 Recent Updates
+
+### January 2026
+- Updated documentation for admin role and access control
+- Added cooking mode functionality documentation
+- Updated navigation and filter documentation
+- Enhanced administrative tier implementation documentation
+- Improved admin user management guides
+
 ## Installation
 
 ```bash
